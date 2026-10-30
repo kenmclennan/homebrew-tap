@@ -1,9 +1,9 @@
 class Recognizer < Formula
   desc "Scans codebases into a language-neutral structure model"
   homepage "https://github.com/kenmclennan/recognizer-releases"
-  url "https://github.com/kenmclennan/recognizer-releases/releases/download/v0.1.41/recognizer-toolchain.tar.gz"
-  version "0.1.41"
-  sha256 "83bd883fbf8f4cd24d3dabb54980935951a04ed62e6e58664f3e7b378697e381"
+  url "https://github.com/kenmclennan/recognizer-releases/releases/download/v0.1.42/recognizer-toolchain.tar.gz"
+  version "0.1.42"
+  sha256 "1a9ab9b53989461a1222549aa7ebdef2ad4af4b2e8150fdfcbb71b5ec54dbdd7"
   license "MIT"
 
   depends_on arch: :arm64
@@ -19,8 +19,8 @@ class Recognizer < Formula
 
     system formula_opt_bin("python@3.13")/"python3.13", "-m", "venv", libexec/"venv"
     system libexec/"venv/bin/pip", "install", "--no-index", "--find-links", "wheelhouse",
-           "recognizer_scan_python-0.1.41-py3-none-any.whl",
-           "recognizer_scan_kotlin-0.1.41-py3-none-any.whl"
+           "recognizer_scan_python-0.1.42-py3-none-any.whl",
+           "recognizer_scan_kotlin-0.1.42-py3-none-any.whl"
     bin.install_symlink libexec/"venv/bin/recognizer-scan-python"
     bin.install_symlink libexec/"venv/bin/recognizer-scan-kotlin"
 
@@ -30,11 +30,11 @@ class Recognizer < Formula
   end
 
   test do
-    assert_match "0.1.41", shell_output("#{bin}/recognizer --version")
-    assert_match "0.1.41", shell_output("#{bin}/recognizer-scan-typescript --version")
-    assert_match "0.1.41", shell_output("#{bin}/recognizer-scan-python --version")
-    assert_match "0.1.41", shell_output("#{bin}/recognizer-scan-kotlin --version")
-    assert_match "0.1.41", shell_output("#{bin}/recognizer-scan-rust --version")
+    assert_match "0.1.42", shell_output("#{bin}/recognizer --version")
+    assert_match "0.1.42", shell_output("#{bin}/recognizer-scan-typescript --version")
+    assert_match "0.1.42", shell_output("#{bin}/recognizer-scan-python --version")
+    assert_match "0.1.42", shell_output("#{bin}/recognizer-scan-kotlin --version")
+    assert_match "0.1.42", shell_output("#{bin}/recognizer-scan-rust --version")
     assert_match(/prompt-[0-9a-f]{12}/, shell_output("#{bin}/recognizer-describe-claude --prompt-version"))
   end
 end
