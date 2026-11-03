@@ -1,9 +1,9 @@
 class Recognizer < Formula
   desc "Scans codebases into a language-neutral structure model"
   homepage "https://github.com/kenmclennan/recognizer-releases"
-  url "https://github.com/kenmclennan/recognizer-releases/releases/download/v0.1.90/recognizer-toolchain.tar.gz"
-  version "0.1.90"
-  sha256 "8384b8cbd055b0183d683dbb656bc37ef17e2b5e1c88be752e76bac8db5bbd09"
+  url "https://github.com/kenmclennan/recognizer-releases/releases/download/v0.1.91/recognizer-toolchain.tar.gz"
+  version "0.1.91"
+  sha256 "f4ae04dee121a2dd40987cf130dc1143c25afc7ae28b72d63c2db03557895345"
   license "MIT"
 
   depends_on arch: :arm64
@@ -19,9 +19,9 @@ class Recognizer < Formula
 
     system formula_opt_bin("python@3.13")/"python3.13", "-m", "venv", libexec/"venv"
     system libexec/"venv/bin/pip", "install", "--no-index", "--find-links", "wheelhouse",
-           "recognizer_scan_python-0.1.90-py3-none-any.whl",
-           "recognizer_scan_kotlin-0.1.90-py3-none-any.whl",
-           "recognizer_sensors-0.1.90-py3-none-any.whl"
+           "recognizer_scan_python-0.1.91-py3-none-any.whl",
+           "recognizer_scan_kotlin-0.1.91-py3-none-any.whl",
+           "recognizer_sensors-0.1.91-py3-none-any.whl"
     bin.install_symlink libexec/"venv/bin/recognizer-scan-python"
     bin.install_symlink libexec/"venv/bin/recognizer-scan-kotlin"
     bin.install_symlink libexec/"venv/bin/recognizer-sensors"
@@ -32,12 +32,12 @@ class Recognizer < Formula
   end
 
   test do
-    assert_match "0.1.90", shell_output("#{bin}/recognizer --version")
-    assert_match "0.1.90", shell_output("#{bin}/recognizer-scan-typescript --version")
-    assert_match "0.1.90", shell_output("#{bin}/recognizer-scan-python --version")
-    assert_match "0.1.90", shell_output("#{bin}/recognizer-scan-kotlin --version")
-    assert_match "0.1.90", shell_output("#{bin}/recognizer-scan-rust --version")
-    assert_match "0.1.90", shell_output("#{bin}/recognizer-sensors --version")
+    assert_match "0.1.91", shell_output("#{bin}/recognizer --version")
+    assert_match "0.1.91", shell_output("#{bin}/recognizer-scan-typescript --version")
+    assert_match "0.1.91", shell_output("#{bin}/recognizer-scan-python --version")
+    assert_match "0.1.91", shell_output("#{bin}/recognizer-scan-kotlin --version")
+    assert_match "0.1.91", shell_output("#{bin}/recognizer-scan-rust --version")
+    assert_match "0.1.91", shell_output("#{bin}/recognizer-sensors --version")
     assert_match(/prompt-[0-9a-f]{12}/, shell_output("#{bin}/recognizer-describe-claude --prompt-version"))
   end
 end
