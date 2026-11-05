@@ -1,9 +1,9 @@
 class Recognizer < Formula
   desc "Scans codebases into a language-neutral structure model"
   homepage "https://github.com/kenmclennan/recognizer-releases"
-  url "https://github.com/kenmclennan/recognizer-releases/releases/download/v0.1.108/recognizer-toolchain.tar.gz"
-  version "0.1.108"
-  sha256 "f92da59a30a3f34ab0aff3a2bed0ad363ceda6c2b2fba56aed5c19def0c17850"
+  url "https://github.com/kenmclennan/recognizer-releases/releases/download/v0.1.109/recognizer-toolchain.tar.gz"
+  version "0.1.109"
+  sha256 "d53626ef5e4ac63f9e770b726da410861d2740b9e8bcb22fbac623aadaa92bda"
   license "MIT"
 
   depends_on arch: :arm64
@@ -19,11 +19,13 @@ class Recognizer < Formula
 
     system formula_opt_bin("python@3.13")/"python3.13", "-m", "venv", libexec/"venv"
     system libexec/"venv/bin/pip", "install", "--no-index", "--find-links", "wheelhouse",
-           "recognizer_scan_python-0.1.108-py3-none-any.whl",
-           "recognizer_scan_kotlin-0.1.108-py3-none-any.whl",
-           "recognizer_sensors-0.1.108-py3-none-any.whl"
+           "recognizer_scan_python-0.1.109-py3-none-any.whl",
+           "recognizer_scan_kotlin-0.1.109-py3-none-any.whl",
+           "recognizer_scan_csharp-0.1.109-py3-none-any.whl",
+           "recognizer_sensors-0.1.109-py3-none-any.whl"
     bin.install_symlink libexec/"venv/bin/recognizer-scan-python"
     bin.install_symlink libexec/"venv/bin/recognizer-scan-kotlin"
+    bin.install_symlink libexec/"venv/bin/recognizer-scan-csharp"
     bin.install_symlink libexec/"venv/bin/recognizer-sensors"
 
     bin.install "recognizer-scan-rust"
@@ -32,12 +34,13 @@ class Recognizer < Formula
   end
 
   test do
-    assert_match "0.1.108", shell_output("#{bin}/recognizer --version")
-    assert_match "0.1.108", shell_output("#{bin}/recognizer-scan-typescript --version")
-    assert_match "0.1.108", shell_output("#{bin}/recognizer-scan-python --version")
-    assert_match "0.1.108", shell_output("#{bin}/recognizer-scan-kotlin --version")
-    assert_match "0.1.108", shell_output("#{bin}/recognizer-scan-rust --version")
-    assert_match "0.1.108", shell_output("#{bin}/recognizer-sensors --version")
+    assert_match "0.1.109", shell_output("#{bin}/recognizer --version")
+    assert_match "0.1.109", shell_output("#{bin}/recognizer-scan-typescript --version")
+    assert_match "0.1.109", shell_output("#{bin}/recognizer-scan-python --version")
+    assert_match "0.1.109", shell_output("#{bin}/recognizer-scan-kotlin --version")
+    assert_match "0.1.109", shell_output("#{bin}/recognizer-scan-csharp --version")
+    assert_match "0.1.109", shell_output("#{bin}/recognizer-scan-rust --version")
+    assert_match "0.1.109", shell_output("#{bin}/recognizer-sensors --version")
     assert_match(/prompt-[0-9a-f]{12}/, shell_output("#{bin}/recognizer-describe-claude --prompt-version"))
   end
 end
