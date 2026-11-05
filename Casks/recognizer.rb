@@ -1,6 +1,6 @@
 cask "recognizer" do
-  version "0.1.110"
-  sha256 "d0079a160be8165eb3eca0cfa127ca077b7079f6df7763d8cbe8e2e924ce4e77"
+  version "0.1.112"
+  sha256 "83df5620d6dd7c0f34630502dbe58e05b6a9a914e398708357b84cdab3cda448"
 
   url "https://github.com/kenmclennan/recognizer-releases/releases/download/v#{version}/recognizer.app.tar.gz"
   name "Recognizer"
@@ -8,10 +8,20 @@ cask "recognizer" do
   homepage "https://github.com/kenmclennan/recognizer-releases"
 
   depends_on arch: :arm64
-  depends_on formula: "kenmclennan/tap/recognizer"
+  depends_on formula: "node"
+  depends_on formula: "python@3.13"
   depends_on :macos
 
   app "Recognizer.app"
+
+  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/node_modules/recognizer/dist/bin.js", target: "recognizer"
+  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/node_modules/recognizer-scan-typescript/dist/bin.js", target: "recognizer-scan-typescript"
+  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/node_modules/recognizer-describe-claude/dist/bin.js", target: "recognizer-describe-claude"
+  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/bin/recognizer-scan-python"
+  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/bin/recognizer-scan-kotlin"
+  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/bin/recognizer-scan-csharp"
+  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/bin/recognizer-sensors"
+  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/recognizer-scan-rust"
 
   postflight_steps do
     run "/usr/bin/xattr",
