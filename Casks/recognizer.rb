@@ -1,6 +1,6 @@
 cask "recognizer" do
-  version "0.1.162"
-  sha256 "8cb1f35a5a849650735fcc70ee85b22b450dcbae255ad78746dbf8c6f4f458fe"
+  version "0.1.163"
+  sha256 "cd34f078f1a1284c469da945153a96922c13a590b546468d34de932a81293774"
 
   url "https://github.com/kenmclennan/recognizer-releases/releases/download/v#{version}/recognizer.app.tar.gz"
   name "Recognizer"
