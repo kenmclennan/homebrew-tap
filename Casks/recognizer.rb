@@ -1,6 +1,6 @@
 cask "recognizer" do
-  version "0.1.171"
-  sha256 "345dd856a3aa02ea3a6a3f35e0c451dac3780e5087526efdbc2e567aa6d554ac"
+  version "0.1.172"
+  sha256 "54df6a069539212e6d287681f00fd439491e488c0db4231a075a4c1530dc3d90"
 
   url "https://github.com/kenmclennan/recognizer-releases/releases/download/v#{version}/recognizer.app.tar.gz"
   name "Recognizer"
@@ -14,14 +14,25 @@ cask "recognizer" do
 
   app "Recognizer.app"
 
-  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/node_modules/recognizer/dist/bin.js", target: "recognizer"
-  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/node_modules/recognizer-scan-typescript/dist/bin.js", target: "recognizer-scan-typescript"
-  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/node_modules/recognizer-describe-claude/dist/bin.js", target: "recognizer-describe-claude"
-  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/bin/recognizer-scan-python"
-  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/bin/recognizer-scan-kotlin"
-  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/bin/recognizer-scan-csharp"
-  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/bin/recognizer-sensors"
-  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/recognizer-scan-rust"
+  preflight_steps do
+    remove "{{HOMEBREW_PREFIX}}/bin/recognizer", symlink_target_contains: "/Cellar/recognizer/"
+    remove "{{HOMEBREW_PREFIX}}/bin/recognizer-scan-typescript", symlink_target_contains: "/Cellar/recognizer/"
+    remove "{{HOMEBREW_PREFIX}}/bin/recognizer-describe-claude", symlink_target_contains: "/Cellar/recognizer/"
+    remove "{{HOMEBREW_PREFIX}}/bin/recognizer-scan-python", symlink_target_contains: "/Cellar/recognizer/"
+    remove "{{HOMEBREW_PREFIX}}/bin/recognizer-scan-kotlin", symlink_target_contains: "/Cellar/recognizer/"
+    remove "{{HOMEBREW_PREFIX}}/bin/recognizer-scan-csharp", symlink_target_contains: "/Cellar/recognizer/"
+    remove "{{HOMEBREW_PREFIX}}/bin/recognizer-sensors", symlink_target_contains: "/Cellar/recognizer/"
+    remove "{{HOMEBREW_PREFIX}}/bin/recognizer-scan-rust", symlink_target_contains: "/Cellar/recognizer/"
+  end
+
+  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/commands/recognizer"
+  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/commands/recognizer-scan-typescript"
+  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/commands/recognizer-describe-claude"
+  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/commands/recognizer-scan-python"
+  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/commands/recognizer-scan-kotlin"
+  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/commands/recognizer-scan-csharp"
+  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/commands/recognizer-sensors"
+  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/commands/recognizer-scan-rust"
 
   postflight_steps do
     run "/usr/bin/xattr",
