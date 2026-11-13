@@ -1,6 +1,6 @@
 cask "recognizer" do
-  version "0.1.226"
-  sha256 "e7eee67612191d90631024fa99d2057b87724243976b0b7c448c50e59e3548c3"
+  version "0.1.227"
+  sha256 "ea46f9db1e42faa6e39e14901bdf6f41925996a0a8b76261104b4d8e1c5608ee"
 
   url "https://github.com/kenmclennan/recognizer-releases/releases/download/v#{version}/recognizer.app.tar.gz"
   name "Recognizer"
@@ -32,6 +32,9 @@ cask "recognizer" do
   binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/commands/recognizer-scan-kotlin"
   binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/commands/recognizer-scan-csharp"
   binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/commands/recognizer-sensors"
+  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/commands/recognizer-sense-crap"
+  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/commands/recognizer-sense-mutation"
+  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/commands/recognizer-sense-thresholds"
   binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/commands/recognizer-scan-rust"
 
   postflight_steps do
