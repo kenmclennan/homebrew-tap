@@ -1,6 +1,6 @@
 cask "recognizer" do
-  version "0.1.237"
-  sha256 "8bcddf87e0920f490aad87a0b106d8d4f3d9e1248982320d2224180a1b39bc03"
+  version "0.1.238"
+  sha256 "12e79516a201db3dff1c41ad6eee17cd0b543b15d7335e2f1b230f85f425fbc8"
 
   url "https://github.com/kenmclennan/recognizer-releases/releases/download/v#{version}/recognizer.app.tar.gz"
   name "Recognizer"
@@ -9,33 +9,12 @@ cask "recognizer" do
 
   depends_on arch: :arm64
   depends_on formula: "node"
-  depends_on formula: "python@3.13"
+  depends_on formula: "kenmclennan/tap/recognizer-plugins"
   depends_on :macos
 
   app "Recognizer.app"
 
-  preflight_steps do
-    remove "{{HOMEBREW_PREFIX}}/bin/recognizer", symlink_target_contains: "/Cellar/recognizer/"
-    remove "{{HOMEBREW_PREFIX}}/bin/recognizer-scan-typescript", symlink_target_contains: "/Cellar/recognizer/"
-    remove "{{HOMEBREW_PREFIX}}/bin/recognizer-describe-claude", symlink_target_contains: "/Cellar/recognizer/"
-    remove "{{HOMEBREW_PREFIX}}/bin/recognizer-scan-python", symlink_target_contains: "/Cellar/recognizer/"
-    remove "{{HOMEBREW_PREFIX}}/bin/recognizer-scan-kotlin", symlink_target_contains: "/Cellar/recognizer/"
-    remove "{{HOMEBREW_PREFIX}}/bin/recognizer-scan-csharp", symlink_target_contains: "/Cellar/recognizer/"
-    remove "{{HOMEBREW_PREFIX}}/bin/recognizer-sensors", symlink_target_contains: "/Cellar/recognizer/"
-    remove "{{HOMEBREW_PREFIX}}/bin/recognizer-scan-rust", symlink_target_contains: "/Cellar/recognizer/"
-  end
-
   binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/commands/recognizer"
-  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/commands/recognizer-scan-typescript"
-  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/commands/recognizer-describe-claude"
-  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/commands/recognizer-scan-python"
-  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/commands/recognizer-scan-kotlin"
-  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/commands/recognizer-scan-csharp"
-  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/commands/recognizer-sensors"
-  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/commands/recognizer-sense-crap"
-  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/commands/recognizer-sense-mutation"
-  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/commands/recognizer-sense-thresholds"
-  binary "#{appdir}/Recognizer.app/Contents/Resources/toolchain/commands/recognizer-scan-rust"
 
   postflight_steps do
     run "/usr/bin/xattr",
