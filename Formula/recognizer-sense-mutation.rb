@@ -1,9 +1,9 @@
 class RecognizerSenseMutation < Formula
   desc "Recognizer mutation testing sensor"
   homepage "https://github.com/kenmclennan/recognizer-releases"
-  url "https://github.com/kenmclennan/recognizer-releases/releases/download/sensors-v0.1.0/sensors-0.1.0.tar.gz"
-  version "0.1.0"
-  sha256 "7071da37d9c4eded5cf81326c13723b08a3c829cd95256f6edc15b6a27cffca0"
+  url "https://github.com/kenmclennan/recognizer-releases/releases/download/sensors-v0.1.1/sensors-0.1.1.tar.gz"
+  version "0.1.1"
+  sha256 "0ec4da7e791ba8c2feb93c8aa77ec702905ba3696b451400644267ec463aef5c"
   license "MIT"
 
   depends_on arch: :arm64
@@ -16,6 +16,6 @@ class RecognizerSenseMutation < Formula
   end
 
   test do
-    assert_equal "0.1.0", shell_output("#{bin}/recognizer-sense-mutation --version").strip
+    assert_equal "0.1.1", shell_output("#{bin}/recognizer-sense-mutation --version").strip
   end
 end
