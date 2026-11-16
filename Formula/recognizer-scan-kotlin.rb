@@ -1,9 +1,9 @@
 class RecognizerScanKotlin < Formula
   desc "Recognizer scanner for Kotlin"
   homepage "https://github.com/kenmclennan/recognizer-releases"
-  url "https://github.com/kenmclennan/recognizer-releases/releases/download/scan-kotlin-v0.1.0/scan-kotlin-0.1.0.tar.gz"
-  version "0.1.0"
-  sha256 "d07cd803e2fb2af8804ee08e57b93e68838515ead2cdbc24bb0254d84646cccf"
+  url "https://github.com/kenmclennan/recognizer-releases/releases/download/scan-kotlin-v0.1.1/scan-kotlin-0.1.1.tar.gz"
+  version "0.1.1"
+  sha256 "61ec4200c5b0e9a060aa1b8d5a3df3b11d94b35949abb8c644be3e5ce335f41f"
   license "MIT"
 
   depends_on arch: :arm64
@@ -16,6 +16,6 @@ class RecognizerScanKotlin < Formula
   end
 
   test do
-    assert_equal "0.1.0", shell_output("#{bin}/recognizer-scan-kotlin --version").strip
+    assert_equal "0.1.1", shell_output("#{bin}/recognizer-scan-kotlin --version").strip
   end
 end
