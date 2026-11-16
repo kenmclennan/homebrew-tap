@@ -1,9 +1,9 @@
 class RecognizerScanTypescript < Formula
   desc "Recognizer scanner for TypeScript"
   homepage "https://github.com/kenmclennan/recognizer-releases"
-  url "https://github.com/kenmclennan/recognizer-releases/releases/download/scan-typescript-v0.1.0/scan-typescript-0.1.0.tar.gz"
-  version "0.1.0"
-  sha256 "03d5546969b58c3248bf3613cc464b5bc9c08e54f40b5759f9e97c5c956cedad"
+  url "https://github.com/kenmclennan/recognizer-releases/releases/download/scan-typescript-v0.1.1/scan-typescript-0.1.1.tar.gz"
+  version "0.1.1"
+  sha256 "b8e73981fff4b0fec66af5b073175c91d4a81e9d673151e92b98222294b50119"
   license "MIT"
 
   depends_on arch: :arm64
@@ -16,6 +16,6 @@ class RecognizerScanTypescript < Formula
   end
 
   test do
-    assert_equal "0.1.0", shell_output("#{bin}/recognizer-scan-typescript --version").strip
+    assert_equal "0.1.1", shell_output("#{bin}/recognizer-scan-typescript --version").strip
   end
 end
