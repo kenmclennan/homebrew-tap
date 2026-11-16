@@ -1,6 +1,6 @@
 cask "recognizer" do
-  version "0.1.247"
-  sha256 "6460a31262b6d373d106c29c9f767d7ac1a82387bc04f4ff93084876dba39a92"
+  version "0.1.248"
+  sha256 "2d5d11547068901a5256d86788ea469409230701e8360836dd0a9cd8a3ede2bd"
 
   url "https://github.com/kenmclennan/recognizer-releases/releases/download/v#{version}/recognizer.app.tar.gz"
   name "Recognizer"
@@ -19,5 +19,13 @@ cask "recognizer" do
   postflight_steps do
     run "/usr/bin/xattr",
         args: ["-dr", "com.apple.quarantine", "{{appdir}}/Recognizer.app"]
+
+    run "/bin/sh",
+        args: ["-c", <<~'SH', "sh", "node"],
+          if ! /usr/bin/perl -e 'alarm 15; exec @ARGV' "${SHELL:-/bin/zsh}" -ilc "command -v $1" </dev/null >/dev/null 2>&1; then
+            printf '%s\n' "Recognizer needs $1 on your login shell's PATH, and it was not found there. Add this line to your shell's startup file (for example ~/.zshrc), then reopen Recognizer:" '  eval "$(/opt/homebrew/bin/brew shellenv)"' >&2
+          fi
+        SH
+        must_succeed: false
   end
 end
