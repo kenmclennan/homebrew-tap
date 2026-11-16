@@ -1,9 +1,9 @@
 class RecognizerSenseCrap < Formula
   desc "Recognizer C.R.A.P. sensor"
   homepage "https://github.com/kenmclennan/recognizer-releases"
-  url "https://github.com/kenmclennan/recognizer-releases/releases/download/sensors-v0.1.2/sensors-0.1.2.tar.gz"
-  version "0.1.2"
-  sha256 "1e1ac380df433064e70c703f201c1e72a8230f6933a6fdfcc1d15df1a54eef00"
+  url "https://github.com/kenmclennan/recognizer-releases/releases/download/sensors-v0.1.3/sensors-0.1.3.tar.gz"
+  version "0.1.3"
+  sha256 "cdb3a43c1db5084f8bb502a3769de8a126df566d74ab104cc67aa77d11fa81d9"
   license "MIT"
 
   depends_on arch: :arm64
@@ -16,6 +16,6 @@ class RecognizerSenseCrap < Formula
   end
 
   test do
-    assert_equal "0.1.2", shell_output("#{bin}/recognizer-sense-crap --version").strip
+    assert_equal "0.1.3", shell_output("#{bin}/recognizer-sense-crap --version").strip
   end
 end
