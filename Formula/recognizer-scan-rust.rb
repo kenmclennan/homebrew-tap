@@ -1,9 +1,9 @@
 class RecognizerScanRust < Formula
   desc "Recognizer scanner for Rust"
   homepage "https://github.com/kenmclennan/recognizer-releases"
-  url "https://github.com/kenmclennan/recognizer-releases/releases/download/scan-rust-v0.1.2/scan-rust-0.1.2.tar.gz"
-  version "0.1.2"
-  sha256 "3f67fc349fc7536a581f48f3e15b7875d429017e8df13cd62fe3806a32fbe3a4"
+  url "https://github.com/kenmclennan/recognizer-releases/releases/download/scan-rust-v0.1.3/scan-rust-0.1.3.tar.gz"
+  version "0.1.3"
+  sha256 "7b69c3e288a12308388d036e72da82150536b88e722ddab0e3949d0d688982cc"
   license "MIT"
 
   depends_on arch: :arm64
@@ -15,6 +15,6 @@ class RecognizerScanRust < Formula
   end
 
   test do
-    assert_equal "0.1.2", shell_output("#{bin}/recognizer-scan-rust --version").strip
+    assert_equal "0.1.3", shell_output("#{bin}/recognizer-scan-rust --version").strip
   end
 end
