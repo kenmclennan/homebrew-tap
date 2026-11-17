@@ -1,9 +1,9 @@
 class RecognizerScanPython < Formula
   desc "Recognizer scanner for Python"
   homepage "https://github.com/kenmclennan/recognizer-releases"
-  url "https://github.com/kenmclennan/recognizer-releases/releases/download/scan-python-v0.1.0/scan-python-0.1.0.tar.gz"
-  version "0.1.0"
-  sha256 "5bc7bb046a8d005dac7f812e7fda5cead11ecaa4270131bba6d3719123b024f5"
+  url "https://github.com/kenmclennan/recognizer-releases/releases/download/scan-python-v0.1.1/scan-python-0.1.1.tar.gz"
+  version "0.1.1"
+  sha256 "a5f22f5ec950525da568faa2db81d689ea47bda3707553172757561874cace91"
   license "MIT"
 
   depends_on arch: :arm64
@@ -16,6 +16,6 @@ class RecognizerScanPython < Formula
   end
 
   test do
-    assert_equal "0.1.0", shell_output("#{bin}/recognizer-scan-python --version").strip
+    assert_equal "0.1.1", shell_output("#{bin}/recognizer-scan-python --version").strip
   end
 end
