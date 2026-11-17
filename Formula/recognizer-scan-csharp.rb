@@ -1,9 +1,9 @@
 class RecognizerScanCsharp < Formula
   desc "Recognizer scanner for C#"
   homepage "https://github.com/kenmclennan/recognizer-releases"
-  url "https://github.com/kenmclennan/recognizer-releases/releases/download/scan-csharp-v0.1.0/scan-csharp-0.1.0.tar.gz"
-  version "0.1.0"
-  sha256 "de59a821148057c22d25e454120b3d5000a2d98685301608f20f196e0c7577e3"
+  url "https://github.com/kenmclennan/recognizer-releases/releases/download/scan-csharp-v0.1.1/scan-csharp-0.1.1.tar.gz"
+  version "0.1.1"
+  sha256 "4f73657ac0da4ceee6b2bf416f28b1790ae0eeeb55e6a025b1bdaf4fa9c7c8ca"
   license "MIT"
 
   depends_on arch: :arm64
@@ -16,6 +16,6 @@ class RecognizerScanCsharp < Formula
   end
 
   test do
-    assert_equal "0.1.0", shell_output("#{bin}/recognizer-scan-csharp --version").strip
+    assert_equal "0.1.1", shell_output("#{bin}/recognizer-scan-csharp --version").strip
   end
 end
