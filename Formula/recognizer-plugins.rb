@@ -1,9 +1,9 @@
 class RecognizerPlugins < Formula
   desc "Every official Recognizer plugin"
   homepage "https://github.com/kenmclennan/recognizer-releases"
-  url "https://github.com/kenmclennan/recognizer-releases/releases/download/recognizer-plugins-v1/recognizer-plugins-1.tar.gz"
-  version "1"
-  sha256 "3109cdb7f2c74ca27133450f8fccdd2fc9c9edc0596c38ce0c3a9f34a0fb983d"
+  url "https://github.com/kenmclennan/recognizer-releases/releases/download/recognizer-plugins-v2/recognizer-plugins-2.tar.gz"
+  version "2"
+  sha256 "f5fbf4b4ead4e720199e5becd023ba0d4f7fde3cb3d086ccf0b88e57e495ee32"
   license "MIT"
 
   depends_on "recognizer-scan-python"
@@ -13,7 +13,6 @@ class RecognizerPlugins < Formula
   depends_on "recognizer-scan-rust"
   depends_on "recognizer-sense-crap"
   depends_on "recognizer-sense-mutation"
-  depends_on "recognizer-sense-thresholds"
   depends_on "recognizer-describe-claude"
 
   def install
@@ -22,7 +21,7 @@ class RecognizerPlugins < Formula
 
   test do
     members = (libexec/"members.txt").read.split
-    %w[recognizer-scan-python recognizer-scan-typescript recognizer-scan-kotlin recognizer-scan-csharp recognizer-scan-rust recognizer-sense-crap recognizer-sense-mutation recognizer-sense-thresholds recognizer-describe-claude].each do |member|
+    %w[recognizer-scan-python recognizer-scan-typescript recognizer-scan-kotlin recognizer-scan-csharp recognizer-scan-rust recognizer-sense-crap recognizer-sense-mutation recognizer-describe-claude].each do |member|
       assert_includes members, member
     end
   end
